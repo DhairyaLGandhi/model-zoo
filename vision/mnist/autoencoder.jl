@@ -1,3 +1,25 @@
+# Autoencoders on Flux
+
+# Neural networks come in all shapes and sizes, and they are capable of a lot
+# more than classification and regression. In this notebook, we will explore
+# how neural networks can act as a data storage sink or as an efficient
+# compression algorithm, to store all sorts of data.
+
+# Autoencoders perform an unsupervised learning task. Specifically, they try
+# to learn an identity function whilst also learning an intermediate representation
+# which can encode the input datapoint in a smaller feature set that can be
+# used to retrieve our original datapoint. The decoding task may be lossy.
+
+# That's a very basic introduction to what an autoencoder is, and all the
+# possibilities it opens up. So with that sorted, let's start coding.
+
+# [Flux.jl](https://github.com/FluxML/Flux.jl) is an excellent package for
+# deep learning and more in julia. It is really flexible and simple to 
+# hack on, since its julia all the way through. It melts into the language
+# semantics and holds up user defined functions (and other packages) very
+# well. It also has conveneient dataloaders for the MNIST hand writing
+# recognition, so let's start with adding it in our environment.
+
 using Flux, Flux.Data.MNIST
 using Flux: @epochs, onehotbatch, mse, throttle
 using Base.Iterators: partition
